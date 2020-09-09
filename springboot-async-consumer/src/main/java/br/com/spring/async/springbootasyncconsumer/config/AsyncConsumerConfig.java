@@ -7,6 +7,12 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Calsse de configuração
+ * Habilita o Async
+ * @author Rafael Fittipaldi
+ *
+ */
 @Configuration
 @EnableAsync
 public class AsyncConsumerConfig {
@@ -16,6 +22,10 @@ public class AsyncConsumerConfig {
 		return new RestTemplate();
 	}
 	
+	/**
+	 * Cria o Bean de executor de tarefas com prefico "Async-"
+	 * @return {@link TaskExecutor}
+	 */
 	@Bean("poolTask")
 	public TaskExecutor getAsyncExecutor() {
 		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();

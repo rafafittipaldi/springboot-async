@@ -18,7 +18,13 @@ public class AsyncConsumerService {
 
 	@Autowired
     private RestTemplate restTemplate;
-
+	
+	/**
+	 * Consulta usuário de forma assíncrona
+	 * @param user Usuário a ser pesquisado
+	 * @return {@link CompletableFuture}
+	 * @throws InterruptedException
+	 */
 	@Async("poolTask")
     public CompletableFuture<User> findUser(String user) throws InterruptedException {
 		logger.info("Procurando usuário := " + user);
